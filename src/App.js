@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Search from "./components/Search";
+import Baby from "./components/Baby";
+import babyNames from "../src/data/babyNamesData.json";
+import "./App.css";
 
 function App() {
+  const [searchContent, setSearchContent] = useState("");
+  const babies = babyNames.sort((a, b) => a.name.localeCompare(b.name));
+
+  const getSearchContent = (searchCtx) => {
+    setSearchContent(searchCtx);
+  };
+
+  const filteredBabies = babies.filter((baby) =>
+    baby.name.toLocaleLowerCase().includes(searchContent.toLocaleLowerCase())
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App center">
+      <Search onSearch={getSearchContent} searchContent={searchContent} />
+      <Baby babyNames={filteredBabies} />
     </div>
   );
 }
