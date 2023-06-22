@@ -1,6 +1,6 @@
 import React from "react";
 
-const Baby = (props) => {
+const BabyList = (props) => {
   const getProperColor = (baby) => {
     if (baby.sex === "m") {
       return "lightBlue";
@@ -15,7 +15,10 @@ const Baby = (props) => {
         {props.babyNames.map((baby) => {
           return (
             <li key={baby.id}>
-              <button style={{ backgroundColor: getProperColor(baby) }}>
+              <button
+                style={{ backgroundColor: getProperColor(baby) }}
+                onClick={() => props.onAddToFavorite(baby)}
+              >
                 {baby.name}
               </button>
             </li>
@@ -26,4 +29,4 @@ const Baby = (props) => {
   );
 };
 
-export default Baby;
+export default BabyList;
