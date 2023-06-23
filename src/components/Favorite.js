@@ -11,7 +11,7 @@ const Favorite = (props) => {
 
   return (
     <div className="favorite">
-      <h1>Favorite Names : </h1>
+      <h2>Favorite Names : </h2>
       <ul>
         {props.favoriteNames.map((baby) => (
           <li key={baby.id}>
