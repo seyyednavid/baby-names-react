@@ -45,3 +45,10 @@ button {
 button.active {
   background-color: yellow !important;
 }
+
+@media (max-width: 500px) {
+  .search-section {
+    flex-direction: column;
+  }
+  
+}

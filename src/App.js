@@ -38,7 +38,9 @@ function App() {
     setFavoriteNamesList((prevState) =>
       prevState.filter((b) => b.id !== baby.id)
     );
-    setBabyNamesList((prevState) => [...prevState, baby].sort((a, b) => a.name.localeCompare(b.name)));
+    setBabyNamesList((prevState) =>
+      [...prevState, baby].sort((a, b) => a.name.localeCompare(b.name))
+    );
   };
 
   const filterByGender = (genderType) => {
